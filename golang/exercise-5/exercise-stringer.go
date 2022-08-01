@@ -1,10 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+	"strconv"
+)
 
 type IPAddr [4]byte
 
-// TODO: Add a "String() string" method to IPAddr.
+
+func (ip IPAddr)String()string{
+	ret:=[]string{}
+	for i:=0;i<len(ip);i++{
+		ret=append(ret,strconv.Itoa(int(ip[i])))
+	}
+	return strings.Join(ret,".")
+}
 
 func main() {
 	hosts := map[string]IPAddr{
